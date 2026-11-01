@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Armor of God</title>
+  <meta name="description" content="An interactive study of the armor of God — Ephesians 6:10–18 — exploring each piece across the Bible, Book of Mormon, and Doctrine and Covenants.">
+  <meta property="og:title" content="The Armor of God">
+  <meta property="og:description" content="An interactive study of the armor of God across all standard works.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO STATE — warrior fills viewport
+  ════════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="The Armor of God — introduction">
+
+    <div class="hero-inner">
+
+      <div class="hero-warrior-wrap">
+        <!-- Warrior illustration with interactive hit areas -->
+        <div class="warrior-container" id="warrior-hero" aria-label="Interactive armor diagram">
+          <img
+            src="assets/warrior.png"
+            alt="A Roman soldier in full armor stands in a defensive stance, feet planted, shield raised, sword ready."
+            class="warrior-img"
+            width="800"
+            height="1200"
+          >
+
+          <!-- Hit areas — coordinates from APPROVED.md, stored in armor-data.js -->
+          <button class="hit-area" data-piece="ARMOR-0005" aria-label="Helmet of Salvation" style="top:0%;left:22%;width:42%;height:20%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0002" aria-label="Breastplate of Righteousness" style="top:18%;left:18%;width:46%;height:26%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0001" aria-label="Belt of Truth" style="top:42%;left:18%;width:46%;height:14%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0004" aria-label="Shield of Faith" style="top:18%;left:48%;width:44%;height:62%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0006" aria-label="Sword of the Spirit" style="top:46%;left:6%;width:34%;height:26%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0003" aria-label="Shoes of the Gospel of Peace" style="top:83%;left:6%;width:80%;height:15%;"></button>
+
+          <!-- Darkness hit area — covers the surrounding area outside the figure -->
+          <button class="hit-area hit-area--darkness" data-piece="ARMOR-0007" aria-label="The enemy — tap to learn who we wrestle against"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sentinel: when this exits the viewport, the two-pane layout activates -->
+    <div id="hero-sentinel" aria-hidden="true"></div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       TWO-PANE STATE — warrior left, content right
+  ════════════════════════════════════════════════════ -->
+  <main id="main-content">
+  <section id="study" class="study-section" aria-label="Armor of God interactive study">
+
+    <div class="study-inner">
+
+      <!-- Left pane: warrior (sticky) -->
+      <div class="study-warrior-pane" aria-label="Armor diagram navigation">
+        <div class="warrior-container" id="warrior-study">
+          <img
+            src="assets/warrior.png"
+            alt="A Roman soldier in full armor stands in a defensive stance, feet planted, shield raised, sword ready."
+            class="warrior-img"
+            width="800"
+            height="1200"
+          >
+          <button class="hit-area" data-piece="ARMOR-0005" aria-label="Helmet of Salvation" style="top:0%;left:22%;width:42%;height:20%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0002" aria-label="Breastplate of Righteousness" style="top:18%;left:18%;width:46%;height:26%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0001" aria-label="Belt of Truth" style="top:42%;left:18%;width:46%;height:14%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0004" aria-label="Shield of Faith" style="top:18%;left:48%;width:44%;height:62%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0006" aria-label="Sword of the Spirit" style="top:46%;left:6%;width:34%;height:26%;"></button>
+          <button class="hit-area" data-piece="ARMOR-0003" aria-label="Shoes of the Gospel of Peace" style="top:83%;left:6%;width:80%;height:15%;"></button>
+          <button class="hit-area hit-area--darkness" data-piece="ARMOR-0007" aria-label="The enemy — tap to learn who we wrestle against"></button>
+        </div>
+      </div>
+
+      <!-- Right pane: content panels -->
+      <div class="study-content-pane" id="content-pane">
+
+        <!-- Tab strip -->
+        <nav class="tab-strip" aria-label="Armor pieces">
+          <button class="tab active" data-tab="overview">Overview</button>
+          <button class="tab" data-tab="ARMOR-0005">Helmet</button>
+          <button class="tab" data-tab="ARMOR-0002">Breastplate</button>
+          <button class="tab" data-tab="ARMOR-0001">Belt</button>
+          <button class="tab" data-tab="ARMOR-0004">Shield</button>
+          <button class="tab" data-tab="ARMOR-0006">Sword</button>
+          <button class="tab" data-tab="ARMOR-0003">Shoes</button>
+        </nav>
+
+        <!-- Aria live region for screen readers -->
+        <div id="panel-announce" aria-live="polite" aria-atomic="true" class="visually-hidden"></div>
+
+        <!-- Overview panel -->
+        <div class="panel panel--overview active" id="panel-overview" role="region" aria-label="Overview of all armor pieces">
+          <h2>Put on the whole armour of God</h2>
+          <p class="panel-intro">
+            Paul commands the whole armor twice in Ephesians 6 — not some of it, not the pieces that feel most urgent.
+            Each piece protects a different part of the person. None is optional.
+          </p>
+          <ul class="overview-list">
+            <li><button class="overview-item" data-piece="ARMOR-0001"><span class="piece-name">Belt of Truth</span><span class="piece-part">Loins — moral purity</span></button></li>
+            <li><button class="overview-item" data-piece="ARMOR-0002"><span class="piece-name">Breastplate of Righteousness</span><span class="piece-part">Heart — affections and conduct</span></button></li>
+            <li><button class="overview-item" data-piece="ARMOR-0003"><span class="piece-name">Shoes of the Gospel of Peace</span><span class="piece-part">Feet — direction and goals</span></button></li>
+            <li><button class="overview-item" data-piece="ARMOR-0004"><span class="piece-name">Shield of Faith</span><span class="piece-part">Whole body — against the fiery darts</span></button></li>
+            <li><button class="overview-item" data-piece="ARMOR-0005"><span class="piece-name">Helmet of Salvation</span><span class="piece-part">Head — thoughts and mind</span></button></li>
+            <li><button class="overview-item" data-piece="ARMOR-0006"><span class="piece-name">Sword of the Spirit</span><span class="piece-part">The only offensive piece — the word of God</span></button></li>
+          </ul>
+          <p class="overview-cta">Tap any piece on the warrior, or select from the list above.</p>
+        </div>
+
+        <!-- Enemy panel -->
+        <div class="panel panel--enemy" id="panel-ARMOR-0007" role="region" aria-label="The enemy — who we wrestle against">
+          <button class="panel-back" aria-label="Back to overview">← Back</button>
+          <h2>Who we wrestle</h2>
+          <blockquote class="scripture-block">
+            <p id="enemy-verse"></p>
+            <cite id="enemy-ref"></cite>
+          </blockquote>
+          <p class="panel-note">The armor is not for conflict with other people. The enemy is organized, ranked, and spiritual.</p>
+          <ul class="enemy-list" id="enemy-titles"></ul>
+          <div class="jsh-connection" id="jsh-block"></div>
+        </div>
+
+        <!-- Armor piece panels — populated by JS from armor-data.js -->
+        <div class="panel panel--piece" id="panel-ARMOR-0001" role="region" aria-label="Belt of Truth"></div>
+        <div class="panel panel--piece" id="panel-ARMOR-0002" role="region" aria-label="Breastplate of Righteousness"></div>
+        <div class="panel panel--piece" id="panel-ARMOR-0003" role="region" aria-label="Shoes of the Gospel of Peace"></div>
+        <div class="panel panel--piece" id="panel-ARMOR-0004" role="region" aria-label="Shield of Faith"></div>
+        <div class="panel panel--piece" id="panel-ARMOR-0005" role="region" aria-label="Helmet of Salvation"></div>
+        <div class="panel panel--piece" id="panel-ARMOR-0006" role="region" aria-label="Sword of the Spirit"></div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       PRAYER SECTION
+  ════════════════════════════════════════════════════ -->
+  <section id="prayer-section" aria-labelledby="prayer-heading">
+    <div class="section-inner">
+      <h2 id="prayer-heading">How the armor works</h2>
+      <div id="prayer-content"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       CROSS-REFERENCE CHART
+  ════════════════════════════════════════════════════ -->
+  <section id="chart-section" aria-labelledby="chart-heading">
+    <div class="section-inner">
+      <h2 id="chart-heading">The armor across scripture</h2>
+      <p class="chart-intro">The armor of God appears across all four standard works and the Pearl of Great Price. Each volume adds something distinct.</p>
+      <div class="chart-scroll">
+        <table class="chart-table" id="chart-table">
+          <thead>
+            <tr>
+              <th scope="col">Reference</th>
+              <th scope="col">Volume</th>
+              <th scope="col">Pieces / context</th>
+            </tr>
+          </thead>
+          <tbody id="chart-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="section-inner">
+      <p>Scripture quotations from the King James Version via <a href="https://www.churchofjesuschrist.org/study/scriptures" target="_blank" rel="noopener">The Church of Jesus Christ of Latter-day Saints</a>.</p>
+    </div>
+  </footer>
+
+  <script src="armor-data.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
